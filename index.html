@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elite Plumbing Co — Bellevue, WA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --brand: #0a1628;
+      --accent: #e8420a;
+      --accent2: #f5a623;
+      --light: #f4f1ec;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --card-bg: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--light);
+      color: var(--brand);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: var(--brand);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--white);
+      letter-spacing: 2px;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 600 !important;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: var(--brand);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 7rem 2.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(232,66,10,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(232,66,10,0.15);
+      border: 1px solid rgba(232,66,10,0.3);
+      color: var(--accent);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      line-height: 0.95;
+      color: var(--white);
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+      display: block;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(232,66,10,0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(232,66,10,0.5);
+    }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.2rem;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 380px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-card-title::before {
+      content: '🔧';
+      font-size: 1.1rem;
+    }
+
+    .availability {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .availability-dot {
+      width: 8px; height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .availability-text {
+      color: #22c55e;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-list li {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .service-list li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .hero-card-cta {
+      width: 100%;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 0.9rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .hero-card-cta:hover { opacity: 0.9; }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: var(--accent);
+      padding: 1rem 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ─── SERVICES ─── */
+    .services {
+      padding: 6rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      line-height: 1;
+      color: var(--brand);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--gray);
+      font-size: 1rem;
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: 3.5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    }
+
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      color: var(--brand);
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ─── WHY US ─── */
+    .why {
+      background: var(--brand);
+      padding: 6rem 2.5rem;
+    }
+
+    .why-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .why .section-title { color: var(--white); }
+    .why .section-sub { color: rgba(255,255,255,0.6); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .why-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .why-item-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .why-item h4 {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .why-item p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    /* ─── REVIEWS ─── */
+    .reviews {
+      padding: 6rem 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.8rem;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .stars {
+      color: var(--accent2);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .review-text {
+      color: var(--brand);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .reviewer-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .reviewer-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--brand);
+    }
+
+    .reviewer-location {
+      font-size: 0.78rem;
+      color: var(--gray);
+    }
+
+    /* ─── CONTACT ─── */
+    .contact {
+      background: var(--brand);
+      padding: 6rem 2.5rem;
+    }
+
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact .section-title { color: var(--white); }
+    .contact .section-sub { color: rgba(255,255,255,0.6); }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      width: 44px; height: 44px;
+      background: rgba(232,66,10,0.15);
+      border: 1px solid rgba(232,66,10,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .contact-item-value {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-group select option { background: var(--brand); }
+
+    .form-submit {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060e1c;
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      letter-spacing: 2px;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    footer p {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.8rem;
+    }
+
+    /* ─── EMERGENCY BANNER ─── */
+    .emergency-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.9rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 30px rgba(232,66,10,0.5);
+      z-index: 99;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      animation: bounce 3s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 6rem 1.2rem 3rem; gap: 3rem; }
+      .hero-visual { display: none; }
+      .why-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .trust-bar { gap: 1.5rem; }
+      .services, .reviews { padding: 4rem 1.2rem; }
+      .why, .contact { padding: 4rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Elite<span>Plumbing</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">⚡ 24/7 Emergency Service Available</div>
+      <h1>Bellevue's<span>Most Trusted</span>Plumbers</h1>
+      <p>Fast, reliable, and affordable plumbing for homeowners and businesses across the Eastside. Licensed, bonded, and backed by hundreds of 5-star reviews.</p>
+      <div class="hero-buttons">
+        <a href="tel:+14255550000" class="btn-primary">📞 Call Now: (425) 555-0000</a>
+        <a href="#contact" class="btn-outline">Get a Free Quote</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div>
+          <div class="stat-num">2,400+</div>
+          <div class="stat-label">Jobs Completed</div>
+        </div>
+        <div>
+          <div class="stat-num">4.9★</div>
+          <div class="stat-label">Google Rating</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-title">Book a Plumber Today</div>
+        <div class="availability">
+          <div class="availability-dot"></div>
+          <span class="availability-text">Available Now — Same Day Service</span>
+        </div>
+        <ul class="service-list">
+          <li>Emergency leak repair</li>
+          <li>Drain cleaning & unclogging</li>
+          <li>Water heater installation</li>
+          <li>Pipe repair & replacement</li>
+          <li>Bathroom & kitchen plumbing</li>
+        </ul>
+        <button class="hero-card-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule Service →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item">✓ Licensed & Bonded</div>
+    <div class="trust-item">✓ Upfront Pricing — No Surprises</div>
+    <div class="trust-item">✓ 1-Hour Emergency Response</div>
+    <div class="trust-item">✓ Serving Bellevue Since 2009</div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Every Plumbing Job,<br>Done Right.</h2>
+    <p class="section-sub">From emergency repairs to full installations, our licensed team handles it all — fast, clean, and guaranteed.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🚨</span>
+        <h3>Emergency Repairs</h3>
+        <p>Burst pipes, major leaks, or sewage backups — we respond within the hour, 24 hours a day, 7 days a week including holidays.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔩</span>
+        <h3>Drain Cleaning</h3>
+        <p>Slow drains and clogs cleared fast with professional hydro-jetting and snaking equipment. No mess, no repeat problems.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔥</span>
+        <h3>Water Heater Service</h3>
+        <p>Installation, repair, and replacement of all makes and models. Traditional tank and tankless systems. Same-day available.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏠</span>
+        <h3>Remodel Plumbing</h3>
+        <p>Planning a kitchen or bathroom remodel? We handle all rough-in and finish plumbing so your project goes off without a hitch.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💧</span>
+        <h3>Leak Detection</h3>
+        <p>Hidden leaks can cause thousands in damage. Our non-invasive detection technology finds the problem before it gets worse.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏢</span>
+        <h3>Commercial Plumbing</h3>
+        <p>Restaurants, offices, and multi-unit buildings. We work around your schedule to minimize disruption to your business.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why" id="about">
+    <div class="why-inner">
+      <div>
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-title">We're Not Just<br>Another Plumber</h2>
+        <p class="section-sub">We built our reputation one job at a time — showing up on time, doing honest work, and standing behind everything we do.</p>
+        <a href="#contact" class="btn-primary" style="margin-top:2rem; display:inline-flex;">Get a Free Estimate →</a>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <span class="why-item-icon">⏱️</span>
+          <h4>On-Time Guarantee</h4>
+          <p>We show up when we say we will. Every time.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-item-icon">💰</span>
+          <h4>Upfront Pricing</h4>
+          <p>You approve the price before we start. No hidden fees.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-item-icon">🛡️</span>
+          <h4>Work Guaranteed</h4>
+          <p>All labor is backed by our 1-year workmanship warranty.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-item-icon">🏅</span>
+          <h4>Licensed & Insured</h4>
+          <p>Fully licensed in WA state and insured for your protection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="section-label">Customer Reviews</div>
+    <h2 class="section-title">Don't Take Our<br>Word For It.</h2>
+    <p class="section-sub" style="margin-bottom:3rem;">Real reviews from real Bellevue homeowners.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Had a pipe burst late on a Friday night. They were at my house within 45 minutes and had everything fixed before midnight. Absolute lifesavers. Will never call another plumber."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">MR</div>
+          <div>
+            <div class="reviewer-name">Mike R.</div>
+            <div class="reviewer-location">Bellevue, WA · Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Used them for a full bathroom remodel. Super professional, clean, and the pricing was exactly what they quoted me upfront. No surprises at all. Highly recommend to anyone on the Eastside."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">SL</div>
+          <div>
+            <div class="reviewer-name">Sarah L.</div>
+            <div class="reviewer-location">Kirkland, WA · Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Third time using these guys now. Every single time they show up on time, explain exactly what needs to be done, and get it fixed fast. The most honest plumbers I've ever dealt with."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">JK</div>
+          <div>
+            <div class="reviewer-name">James K.</div>
+            <div class="reviewer-location">Redmond, WA · Google Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div>
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Ready to Fix<br>Your Problem?</h2>
+        <p class="section-sub">Call us now for same-day service or fill out the form and we'll get back to you within the hour.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-value">(425) 555-0000</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Service Area</div>
+              <div class="contact-item-value">Bellevue, Kirkland, Redmond & Eastside</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <div class="contact-item-label">Hours</div>
+              <div class="contact-item-value">24/7 Emergency · Mon–Sat 7am–7pm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John"/>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(425) 555-0000"/>
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select>
+            <option>Emergency Repair</option>
+            <option>Drain Cleaning</option>
+            <option>Water Heater</option>
+            <option>Remodel Plumbing</option>
+            <option>Leak Detection</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tell Us What's Going On</label>
+          <textarea placeholder="Describe the issue..."></textarea>
+        </div>
+        <button class="form-submit">Request Free Quote →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Elite<span>Plumbing</span></div>
+    <p>© 2025 Elite Plumbing Co. · Bellevue, WA · Licensed & Bonded</p>
+    <p style="color:rgba(255,255,255,0.2); font-size:0.75rem;">WA Contractor License #ELITEP123</p>
+  </footer>
+
+  <!-- EMERGENCY FLOAT -->
+  <a href="tel:+14255550000" class="emergency-banner">🚨 Emergency? Call Now</a>
+  <script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"
+      v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+<script>
+  window.voiceflow = window.voiceflow || {};
+  window.voiceflow.chat = {
+    load: function(e) {
+      var t = document.createElement("script");
+      t.type = "text/javascript";
+      t.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+      t.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '69e5a931b4d91e08aca265ed' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'development'
+        });
+      };
+      document.head.appendChild(t);
+    }
+  };
+  window.voiceflow.chat.load();
+</script>
+
+</body>
+</html>
